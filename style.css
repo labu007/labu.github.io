@@ -1,0 +1,66 @@
+body{
+    background-color: rgba(0, 0, 0, 0.918);
+	color: #5e698d;
+	font: 17px Arial, Helvetica, sans-serif;
+	line-height: 1.5em;
+	margin: 0;
+}
+.close{
+	clear:both;
+}
+h1{
+	font-style: italic;
+	text-transform: uppercase;
+	letter-spacing: 0.9em;
+}
+h2{
+	font-weight: normal;
+	color: royalblue;
+}
+.container {
+	width: 80%;
+	margin: auto;
+}
+#welcome{
+    background-image: url('port.png');
+    color: rgba(15, 1, 1, 0.767);
+	background-position:center;
+    text-align: center;
+    padding: 10px;
+}
+img {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+	width: 13%;
+	height: 13%;
+	border-radius: 50%;
+  }
+#bio-box{
+	box-sizing: border-box;
+	margin:20px 0;
+}
+#project {
+	float:left;
+    width:57.5%;
+    background-color: rgba(169, 169, 169, 0.288);
+	color: rgba(238, 226, 226, 0.877);
+	box-sizing: border-box;
+	margin:20px 0;
+}
+#skill-set {
+	float: right;
+	width: 39.5%;
+	border-right:7px rgb(54, 53, 138) solid;
+	background-color:#02101a;
+    color: whitesmoke;
+	text-align: center;
+	padding: 15px;
+	margin-top: 50px;
+}
+#main-footer{
+	border-top:7px blueviolet solid;
+	border-bottom:7px blueviolet solid;
+	text-align: center;
+	padding: 15px;
+}
