@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Users</title>
+    <style>
+        body{
+    background-color: rgba(0, 0, 0, 0.979);
+	color: #ccd1df;
+	font: 17px Arial, Helvetica, sans-serif;
+	line-height: 1.5em;
+	margin: 0;
+}
+        img {
+	  display: block;
+     margin-left: auto;
+     margin-right: auto;
+	width: 13%;
+	height: 13%;
+    border-radius: 50%;
+    position: relative;
+    animation-name: example;
+	animation-duration: 5s;  
+	animation-delay: 2s;
+	animation-fill-mode: backwards;
+	animation-iteration-count: infinite;
+  }
+  @keyframes example {
+    0%{left: 0px; top: 0px;}
+   25%{left: 200px; top: 0px;}
+   50%{left: 0px; top: 0px;}
+   75%{left: -200px; top: 0px;}
+  100% {left: 0px; top: 0px;}
+  }
+  div{
+    background-color: rgba(3, 50, 71, 0.548);
+    color: rgb(240, 229, 229);
+    text-align: center;
+	margin:auto;
+  }
+  ul{
+    list-style: none;
+  }
+  h1{
+    text-align: center;
+  }
+  button{
+    margin: 0;
+  position: absolute;
+  left: 45%;
+  background-color: rgba(121, 157, 173, 0.548);
+    color: rgb(255, 255, 255);
+  
+  }
+  a{
+      color:#788abb;
+  }
+    </style>
+</head>
+<body>
+    <button id="button">Load GitHub Users</button>
+    <br>
+    <h1>Github Users</h1>
+    <div id="person"></div>
+    
+    <script>
+        document.getElementById('button').addEventListener('click', showData);
+        function showData() {
+            var req = new XMLHttpRequest();
+            req.open('GET', 'https://api.github.com/users', true);
+            req.onload = function(){
+                if(req.status==200){
+                    var people = JSON.parse(req.responseText);
+                    var display ='';
+                
+                    for (var i in people){
+                        display += 
+                        '<div>'+
+                        '<img src='+people[i].avatar_url+'width=50% height=50%>'+
+                            '<ul>' +
+                            '<li>ID: ' +people[i].id+'</li>'+
+                            '<li>Login: ' +people[i].login+'</li>'+
+                            '<li><a href='+people[i].repos_url+'>Repos</a></li>'+
+                            '<li><a href='+people[i].html_url+'>Html Url</a></li>'+
+                            '<li><a href='+people[i].followers_url+'>Followers Url</a></li>'+                                                       
+                            '</ul>'+
+                            '</div>';
+
+                    }
+                    document.getElementById('person').innerHTML=display;
+                }
+            }
+            req.send();
+        }
+    </script>
+</body>
+</html>
